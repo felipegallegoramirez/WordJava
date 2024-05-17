@@ -4,18 +4,11 @@ PruebaWord
  */
 
 package com.mycompany.pruebaword;
-import org.apache.poi.xwpf.usermodel.*;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import com.mycompany.pruebaword.Modificar;
 
 public class PruebaWord {
     public static void main(String[] args) {
-        String inputFilePath = "C:\\Users\\Felipe\\Documents\\NetBeansProjects\\PruebaWord/word.docx";
-        String outputFilePath = "C:\\Users\\Felipe\\Documents\\NetBeansProjects\\PruebaWord/output.docx";
         
         // Valores a reemplazar
         Map<String, String> replacements = new HashMap<>();
@@ -60,6 +53,13 @@ public class PruebaWord {
 "•	Conceptos Básicos de campos: Gradiente, Rotacional, Divergencia.\n" +
 "•	Campos Magnéticos: 1. Ley de Ampere 2. Ley de Biot – Savart 3. Fuerzas Magnéticas 4. Aplicaciones 5. Ley de Faraday 6. Concepto de Inductancia.\n" +
 "•	Modos de transmisión en una guía de ondas, Modo TE y TH");
+        
+        
+        replacements.put("{{tematics_name_axis1}}", "Introducción a los medios de transmisión");
+        replacements.put("{{tematics_name_axis2}}", "Caracterización de los principales tipos de medios guiados");
+        replacements.put("{{tematics_name_axis3}}", " Líneas de transmisión");
+        replacements.put("{{tematics_name_axis4}}", "Acople de impedancias y carta de Smith y sus aplicaciones");
+        
         //2DA ETAPA
         replacements.put("{{metodology_description}}", "En correspondencia con los postulados del Modelo Pedagógico del Politécnico Grancolombiano se emplean metodologías activas en los procesos de enseñanza y de aprendizaje, con el fin de hacer que los estudiantes: \n" +
 " \n" +
@@ -108,26 +108,7 @@ public class PruebaWord {
         replacements.put("{{evaluation_basic}}", "Las técnicas y métodos para evaluar son diversos y se organizan acorde con las necesidades y tipologías de las asignaturas. Cada asignatura evalúa en coherencia con los indicadores de logro declarados, los cuales dan cuenta de los niveles alcanzados a través de las actividades evaluativas de tipo formativo o sumativo, y cuyo desarrollo se hace de manera individual o grupal, en concordancia con su propósito. Para esta asignatura se caracteriza por lo siguiente: ");
         replacements.put("{{evaluation_table_tipology}}", "Teórico Práctica");
         replacements.put("{{evaluation_table_evaluation}}", "Da cuenta de la apropiación de conceptos y teorías y su respectiva aplicación en contexto. Se plantean casos o problemas desde el aprendizaje por problemas.");
-        replacements.put("{{evaluation_table_duration}}", "La evaluación sumativa comprende los logros obtenidos en cada una de las actividades, así como en todo el proceso, representados en porcentajes acumulativos en coherencia con la parametrización que va de 0 a 5; las actividades tienen pesos diferentes, de acuerdo con su complejidad y tipología; siendo una asignatura teórica la evaluación sumativa da cuenta de la asimilación, conceptualización, comparación o contraste de teorías y conceptos. A continuación, la estructura de las actividades:\n" +
-"\n" +
-"•	Resolución de problemas\n" +
-"•	Desarrollo de proyectos\n" +
-"•	Talleres\n" +
-"•	Pruebas escritas\n" +
-" \n" +
-"La evaluación formativa con el análisis de contextos, la discusión a través de preguntas intercaladas, el uso de mapas conceptuales, desarrollo de casos y ejercicios prácticos, según las necesidades del proceso formativo. Para lo anterior, se puede contemplar la incorporación de elementos orientados a la:? \n" +
-"•	Autoevaluación: comprende la valoración que hace el estudiante de sus propias acciones y productos. Desarrolla la capacidad crítica, favorece la autonomía y capacidad para tomar decisiones, permite reformular su método de aprendizaje y autogestión incluyendo la organización de su tiempo.? \n" +
-"•	Coevaluación: se refiere a la evaluación entre pares, fortalece la capacidad crítica, la comunicación asertiva, motiva el aprendizaje colaborativo.? \n" +
-"•	Heteroevaluación: se comprende como la evaluación que hace el tutor al estudiante, y a su vez, la evaluación que hace el estudiante al tutor. \n" +
-"\n" +
-"De otra parte, las acciones de realimentación que se propone emplear a lo largo del proceso formativo para acompañar y apoyar el aprendizaje de los estudiantes son:\n" +
-"\n" +
-"•	Formar: donde se crean las condiciones para que los estudiantes adquieran conocimientos, habilidades, actitudes, aptitudes y destrezas. Además, debe promover su desarrollo integral y debe acompañarlos en las situaciones académicas que enfrenten durante el desarrollo de un módulo o una asignatura. \n" +
-"•	Informar: para que los estudiantes identifiquen los cambios que pueden afectarlos directa o indirectamente tanto en el aula de clase como en otros espacios.\n" +
-"•	Prevenir: con el fin de anticiparse a las situaciones académicas que pueden representar dificultad para los estudiantes. Esto se logra a través de la interacción individual con los estudiantes y del completo conocimiento del contexto educativo en que el tutor se desenvuelve. \n" +
-"•	Ayudar a decidir: donde se orienta a los estudiantes para que tomen la mejor decisión ante una situación concreta. El objetivo es que el estudiante fortalezca su autonomía y la toma de decisiones responsable.\n" +
-"\n" +
-"Y el profesor, de acuerdo con las estrategias, recursos y los mecanismos de mediación las llevará a cabo, según las condiciones y necesidades que se observen en el trabajo directo e independiente.");
+        replacements.put("{{evaluation_table_duration}}", "16 semanas");
         replacements.put("{{evaluation_bottom}}", "La evaluación sumativa comprende los logros obtenidos en cada una de las actividades, así como en todo el proceso, representados en porcentajes acumulativos en coherencia con la parametrización que va de 0 a 5; las actividades tienen pesos diferentes, de acuerdo con su complejidad y tipología; siendo una asignatura teórica la evaluación sumativa da cuenta de la asimilación, conceptualización, comparación o contraste de teorías y conceptos. A continuación, la estructura de las actividades:\n" +
 "\n" +
 "•	Resolución de problemas\n" +
@@ -155,7 +136,7 @@ public class PruebaWord {
 "•	Sistemas de comunicaciones electrónicas, Wayne Tomasi");
         
         Modificar asd = new Modificar();
-        asd.rar(replacements);
+        asd.replaceText(replacements);
         
     }
 }
